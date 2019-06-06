@@ -1,8 +1,6 @@
 package com.example.my_firsttest;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -70,8 +68,8 @@ public class GameEngine extends SurfaceView implements Runnable {
 
 
         // initalize sprites
-        this.player = new Sprite(this.getContext(), 100, 700, R.drawable.player128);
-        this.sparrow = new Sprite(this.getContext(), 500, 200, R.drawable.bird128);
+        this.player = new Sprite(this.getContext(), 100, 700, R.drawable.player64);
+        this.sparrow = new Sprite(this.getContext(), 500, 400, R.drawable.bird64);
     }
 
     @Override
