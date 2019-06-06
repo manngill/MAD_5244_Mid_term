@@ -26,6 +26,9 @@ public class GameEngine extends SurfaceView implements Runnable {
     private Canvas canvas;
     private Paint paintbrush;
     private SurfaceHolder holder;
+    String Message;
+    boolean  flag = false;
+    float xx, yy;
 
     // Screen resolution varaibles
     private int screenWidth;
@@ -37,7 +40,7 @@ public class GameEngine extends SurfaceView implements Runnable {
     int VISIBLE_TOP;
     int VISIBLE_RIGHT;
     int VISIBLE_BOTTOM;
-    int Speed = 20;
+    int Speed = 10;
 
     // SPRITES
     Square bullet;
@@ -81,8 +84,8 @@ public class GameEngine extends SurfaceView implements Runnable {
 
 
         // initalize sprites
-        this.player = new Sprite(this.getContext(), 100, 400, R.drawable.player64);
-        this.cat = new Sprite(this.getContext(), this.VISIBLE_RIGHT - 80 ,this.VISIBLE_BOTTOM-80, R.drawable.cat64);
+        this.player = new Sprite(this.getContext(), 100, 700, R.drawable.player64);
+        this.cat = new Sprite(this.getContext(), this.VISIBLE_RIGHT - 200 ,this.VISIBLE_BOTTOM-200, R.drawable.cat64);
         this.robot = new Sprite(this.getContext(), this.VISIBLE_RIGHT-80 , this.VISIBLE_TOP+20, R.drawable.robot64);
 
         this.bullet = new Square(context,100, 400, SQUARE_WIDTH);
@@ -145,7 +148,7 @@ public class GameEngine extends SurfaceView implements Runnable {
 
         try
         {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         }
 
         catch (Exception e)
