@@ -1,6 +1,8 @@
 package com.example.my_firsttest;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -43,6 +45,8 @@ public class GameEngine extends SurfaceView implements Runnable {
 
     Sprite player;
     Sprite sparrow;
+    Sprite cage;
+    Sprite cat;
 
     ArrayList<Square> bullets = new ArrayList<Square>();
 
@@ -53,7 +57,7 @@ public class GameEngine extends SurfaceView implements Runnable {
         super(context);
 
         // intialize the drawing variables
-        this.holder = this.getHolder();
+        this.holder = this.getHolder()
         this.paintbrush = new Paint();
 
         // set screen height and width
@@ -68,8 +72,11 @@ public class GameEngine extends SurfaceView implements Runnable {
 
 
         // initalize sprites
-        this.player = new Sprite(this.getContext(), 100, 700, R.drawable.player64);
-        this.sparrow = new Sprite(this.getContext(), 500, 400, R.drawable.bird64);
+        this.player = new Sprite(this.getContext(), 100, 400, R.drawable.player64);
+        this.sparrow = new Sprite(this.getContext(), 500, 200, R.drawable.bird64);
+        this.cat = new Sprite(this.getContext(), this.VISIBLE_RIGHT - 200 ,this.VISIBLE_BOTTOM-80, R.drawable.cat64);
+        this.cage = new Sprite(this.getContext(), this.VISIBLE_RIGHT-200 , this.VISIBLE_TOP+20, R.drawable.cage);
+
     }
 
     @Override
@@ -127,6 +134,14 @@ public class GameEngine extends SurfaceView implements Runnable {
 
             // 2. sparrow
             canvas.drawBitmap(this.sparrow.getImage(), this.sparrow.getxPosition(), this.sparrow.getyPosition(), paintbrush);
+
+
+            // 3. cat
+            canvas.drawBitmap(this.cat.getImage(), this.cat.getxPosition(), this.cat.getyPosition(), paintbrush);
+
+            // 3. cage
+            canvas.drawBitmap(this.cage.getImage(), this.cage.getxPosition(), this.cage.getyPosition(), paintbrush);
+
 
             // --------------------------------------------------------
             // draw hitbox on player
@@ -189,4 +204,3 @@ public class GameEngine extends SurfaceView implements Runnable {
     }
 
 }
-
