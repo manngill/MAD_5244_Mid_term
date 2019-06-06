@@ -8,6 +8,7 @@ import android.graphics.Rect;
 public class Sprite {
     private int xPosition;
     private int yPosition;
+    int direction = 1;
 
 
     // image
@@ -21,6 +22,7 @@ public class Sprite {
     double xn = 0;
     double yn = 0;
 
+    String flag = "right";
 
 
 
@@ -39,6 +41,14 @@ public class Sprite {
 
     }
 
+    public void updateCagePosition() {
+
+        if (this.direction == 0) {
+            this.xPosition = this.xPosition - 100;
+        } else if (this.direction == 1) {
+            this.xPosition = this.xPosition + 100;
+        }
+    }
     // ---------------------------------
     // sets or gets the xd variable for this sprite
     // ---------------------------------
@@ -109,4 +119,3 @@ public class Sprite {
         this.image = image;
     }
 }
-
